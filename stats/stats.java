@@ -9,7 +9,7 @@ public class stats
         int[] arrayTrefferBei = new int[0];
         int[] arrayTrefferAnzahl = new int[0];
         
-        for(int i = 1; i <= 15; i++){
+        for(int i = 1; i <= 1000000; i++){
             int zahl;
             int curDuz;
             int trefferBei = 0;
@@ -17,7 +17,7 @@ public class stats
             
             zahl = myRandom(0,36);
             
-            IO.println("" + zahl);
+            //IO.println("" + zahl);
             
             if(zahl == 0){
                 duz1 += 1;
@@ -46,41 +46,35 @@ public class stats
                 duz3 = 0;
             }
             
-            IO.println("Treffer bei " + trefferBei);
+            //IO.println("Treffer bei " + trefferBei);
             
             if(trefferExsist(trefferBei, arrayTrefferBei)){
                
-                getIndex(trefferBei, arrayTrefferBei);    
+                int ind = getIndex(trefferBei, arrayTrefferBei);    
             
+                arrayTrefferAnzahl[ind]++;
+                
             } else {
                 int[] newArray = new int[arrayTrefferBei.length + 1];
+                int[] newArrayAnzahl = new int[arrayTrefferBei.length + 1];
               
                 for(int x = 0; x < arrayTrefferBei.length; x++){
                     newArray[x] = arrayTrefferBei[x];
+                    newArrayAnzahl[x] = arrayTrefferAnzahl[x];
                 }
                 
                 newArray[newArray.length - 1] = trefferBei; 
+                newArrayAnzahl[newArray.length - 1] = 1;
                 
+                arrayTrefferAnzahl = newArrayAnzahl;
                 arrayTrefferBei = newArray;
-                
-                IO.println("L = " + arrayTrefferBei.length);
-                
+    
             }
-            
-           // trefferBei 
-            
-            //if(zahl == neu -> mach array+1 
-            
-            
+           
         }      
         
-        IO.println(" ");
-        IO.println("duz1 " + duz1);
-        IO.println("duz2 " + duz2);
-        IO.println("duz3 " + duz3);
-        
-        for(int z : arrayTrefferBei){
-            IO.print(" " + z);
+        for(int a = 0; a < arrayTrefferAnzahl.length; a++){
+            IO.println("Treffer bei -> " + arrayTrefferBei[a] + " - Anzahl -> " + arrayTrefferAnzahl[a]);
         }
         
     }
@@ -114,7 +108,7 @@ public class stats
     }
     
     public static void main(String[] args){
-        IO.println("Das ist Test \n");
+        //IO.println("Das ist Test \n");
         
         stati();
     }
