@@ -1,10 +1,24 @@
+import java.text.DecimalFormat;
+import java.util.*;
+
 public class stats
 {
     
     public static void stati(){
+        // 1 - 1€ - 1€
+        // 2 - 1€ - 2€
+        // 3 - 2€ - 4€
+        // 4 - 3€ - 7€
+        // 5 - 4€ - 11€
+        // 6 - 6€ - 17€
+        // 7 - 9€ - 26€
+        
+        int konto = 0;
+        
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
+        int trefferNull = 0;
         
         int[] arrayTrefferBei = new int[0];
         int[] arrayTrefferAnzahl = new int[0];
@@ -20,6 +34,9 @@ public class stats
             //IO.println("" + zahl);
             
             if(zahl == 0){
+                
+                trefferNull++;
+                
                 duz1 += 1;
                 duz2 += 1;
                 duz3 += 1;
@@ -55,27 +72,34 @@ public class stats
                 arrayTrefferAnzahl[ind]++;
                 
             } else {
-                int[] newArray = new int[arrayTrefferBei.length + 1];
-                int[] newArrayAnzahl = new int[arrayTrefferBei.length + 1];
-              
-                for(int x = 0; x < arrayTrefferBei.length; x++){
-                    newArray[x] = arrayTrefferBei[x];
-                    newArrayAnzahl[x] = arrayTrefferAnzahl[x];
+                if(trefferBei != 0){
+                    int[] newArray = new int[arrayTrefferBei.length + 1];
+                    int[] newArrayAnzahl = new int[arrayTrefferBei.length + 1];
+                  
+                    for(int x = 0; x < arrayTrefferBei.length; x++){
+                        newArray[x] = arrayTrefferBei[x];
+                        newArrayAnzahl[x] = arrayTrefferAnzahl[x];
+                    }
+                    
+                    newArray[newArray.length - 1] = trefferBei; 
+                    newArrayAnzahl[newArray.length - 1] = 1;
+                    
+                    arrayTrefferAnzahl = newArrayAnzahl;
+                    arrayTrefferBei = newArray;
                 }
-                
-                newArray[newArray.length - 1] = trefferBei; 
-                newArrayAnzahl[newArray.length - 1] = 1;
-                
-                arrayTrefferAnzahl = newArrayAnzahl;
-                arrayTrefferBei = newArray;
-    
             }
            
         }      
         
+        DecimalFormat df = (DecimalFormat)DecimalFormat.getInstance(Locale.GERMAN);
+        df.applyPattern( "#,###,##0" );
+        
+        
         for(int a = 0; a < arrayTrefferAnzahl.length; a++){
-            IO.println("Treffer bei -> " + arrayTrefferBei[a] + " - Anzahl -> " + arrayTrefferAnzahl[a]);
+            IO.println("Treffer bei -> " + arrayTrefferBei[a] + " - Anzahl -> " + df.format(arrayTrefferAnzahl[a]));            
         }
+        
+        //IO.println("\n Null -> " + trefferNull);
         
     }
     
@@ -109,6 +133,8 @@ public class stats
     
     public static void main(String[] args){
         //IO.println("Das ist Test \n");
+        
+       
         
         stati();
     }
