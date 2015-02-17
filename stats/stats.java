@@ -5,13 +5,13 @@ public class stats
 {
     
     public static void stati(){
-        // 1 - 1€ - 1€
-        // 2 - 1€ - 2€
-        // 3 - 2€ - 4€
-        // 4 - 3€ - 7€
-        // 5 - 4€ - 11€
-        // 6 - 6€ - 17€
-        // 7 - 9€ - 26€
+        // 1 - 1€ - 1€ - +2
+        // 2 - 1€ - 2€ - +1
+        // 3 - 2€ - 4€ - +2
+        // 4 - 3€ - 7€ - +2
+        // 5 - 4€ - 11€ - +1
+        // 6 - 6€ - 17€ - +1
+        // 7 - 9€ - 26€ - +1
         
         int konto = 0;
         
@@ -63,6 +63,104 @@ public class stats
                 duz3 = 0;
             }
             
+            if(trefferBei == 8){
+                konto += 2;
+            }
+            
+            if(trefferBei == 9){
+                konto += 1;
+            }
+            
+            if(trefferBei == 10){
+                konto += 2;
+            }
+            
+            if(trefferBei == 11){
+                konto += 2;
+            }
+            
+            if(trefferBei == 12){
+                konto += 1;
+            }
+            
+            if(trefferBei == 13){
+                konto += 1;
+            }
+            
+            if(trefferBei == 14){
+                konto -= 17;
+            }
+            
+            /*
+            
+            if(trefferBei == 10){
+                konto -= 15;
+            }
+            
+            
+            
+            if(trefferBei == 11){
+                konto -= 16;
+            }
+            
+            
+            
+            if(trefferBei == 12){
+                konto -= 15;
+            }
+            
+            if(trefferBei == 13){
+                konto -= 15;
+            }
+            
+            if(trefferBei == 14){
+                konto -= 16;
+            }
+            
+            if(trefferBei == 18){
+                konto -= 16;
+            }
+            
+            
+             
+            if(trefferBei == 19){
+                konto -= 34;
+            }
+            
+            if(trefferBei == 20){
+                konto -= 34;
+            }
+            
+            if(trefferBei == 21){
+                konto -= 34;
+            }
+            
+            if(trefferBei == 22){
+                konto -= 32;
+            }
+            
+            if(trefferBei == 23){
+                konto -= 33;
+            }
+            
+            if(trefferBei == 24){
+                konto -= 32;
+            }
+            
+            if(trefferBei == 25){
+                konto -= 32;
+            }
+            
+            if(trefferBei == 26){
+                konto -= 33;
+            }
+            
+            if(trefferBei == 27){
+                konto -= 33;
+            }
+            
+            */
+            
             //IO.println("Treffer bei " + trefferBei);
             
             if(trefferExsist(trefferBei, arrayTrefferBei)){
@@ -99,7 +197,7 @@ public class stats
             IO.println("Treffer bei -> " + arrayTrefferBei[a] + " - Anzahl -> " + df.format(arrayTrefferAnzahl[a]));            
         }
         
-        //IO.println("\n Null -> " + trefferNull);
+        IO.println("\n Konto -> " + konto + "€");
         
     }
     
