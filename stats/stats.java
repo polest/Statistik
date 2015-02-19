@@ -13,7 +13,12 @@ public class stats
         // 6 - 6€ - 17€ - +1
         // 7 - 9€ - 26€ - +1
         
-        int konto = 0;
+        int konto = 25;
+        int minKonto = 0;
+        int maxKonto = 0;
+        
+        
+        int start = 0;
         
         int duz1 = 0;
         int duz2 = 0;
@@ -26,10 +31,10 @@ public class stats
         for(int i = 1; i <= 1000000; i++){
             int zahl;
             int curDuz;
-            int trefferBei = 0;
+            int trefferBei = 10;
             int index;
             
-            zahl = myRandom(0,36);
+            zahl = randInt(0,36);
             
             //IO.println("" + zahl);
             
@@ -44,6 +49,16 @@ public class stats
                 
                 trefferBei = duz1 + 1;
                
+                if(duz2 >= 8){
+                    duz2 = 0;
+                    konto -= 26;
+                }
+                
+                if(duz3 >= 8){
+                    duz3 = 0;
+                    konto -= 26;
+                }
+                
                 duz1 = 0;
                 duz2 += 1;
                 duz3 += 1;
@@ -51,6 +66,16 @@ public class stats
                 
                 trefferBei = duz2 + 1;
                  
+                if(duz1 >= 8){
+                    duz1 = 0;
+                    konto -= 26;
+                }
+                
+                if(duz3 >= 8){
+                    duz3 = 0;
+                    konto -= 26;
+                }
+                
                 duz1 += 1;
                 duz2 = 0;
                 duz3 += 1;
@@ -58,109 +83,210 @@ public class stats
                 
                 trefferBei = duz3 + 1;
                  
+                if(duz1 >= 8){
+                    duz1 = 0;
+                    konto -= 26;
+                }
+                
+                if(duz2 >= 8){
+                    duz2 = 0;
+                    konto -= 26;
+                }
+                
                 duz1 += 1;
                 duz2 += 1;
                 duz3 = 0;
             }
             
-            if(trefferBei == 8){
+            if(trefferBei == (start + 1)){
                 konto += 2;
             }
             
-            if(trefferBei == 9){
+            if(trefferBei == (start + 2)){
                 konto += 1;
             }
             
-            if(trefferBei == 10){
+            if(trefferBei == (start + 3)){
                 konto += 2;
             }
             
-            if(trefferBei == 11){
+            if(trefferBei == (start + 4)){
                 konto += 2;
             }
             
-            if(trefferBei == 12){
+            if(trefferBei == (start + 5)){
                 konto += 1;
             }
             
-            if(trefferBei == 13){
+            if(trefferBei == (start + 6)){
                 konto += 1;
             }
             
-            if(trefferBei == 14){
-                konto -= 17;
+            if(trefferBei == (start + 7)){
+                konto += 1;
+            }
+            
+            if(trefferBei >= (start + 8)){
+                konto -= 26;
             }
             
             /*
             
-            if(trefferBei == 10){
-                konto -= 15;
+            if(trefferBei == (start + 8)){
+                konto -= 24;
             }
             
-            
-            
-            if(trefferBei == 11){
-                konto -= 16;
+            if(trefferBei == (start + 9)){
+                konto -= 25;
             }
             
-            
-            
-            if(trefferBei == 12){
-                konto -= 15;
+            if(trefferBei == (start + 10)){
+                konto -= 24;
             }
             
-            if(trefferBei == 13){
-                konto -= 15;
+            if(trefferBei == (start + 11)){
+                konto -= 24;
             }
             
-            if(trefferBei == 14){
-                konto -= 16;
+            if(trefferBei == (start + 12)){
+                konto -= 25;
             }
             
-            if(trefferBei == 18){
-                konto -= 16;
+            if(trefferBei == (start + 13)){
+                konto -= 25;
             }
             
-            
-             
-            if(trefferBei == 19){
-                konto -= 34;
+            if(trefferBei == (start + 14)){
+                konto -= 25;
             }
             
-            if(trefferBei == 20){
-                konto -= 34;
+            */
+           /* 
+           
+            if(trefferBei == (start + 21)){
+                konto -= 50;
             }
             
-            if(trefferBei == 21){
-                konto -= 34;
+            if(trefferBei == (start + 22)){
+                konto -= 51;
             }
             
-            if(trefferBei == 22){
-                konto -= 32;
+            if(trefferBei == (start + 23)){
+                konto -= 50;
             }
             
-            if(trefferBei == 23){
-                konto -= 33;
+            if(trefferBei == (start + 24)){
+                konto -= 50;
             }
             
-            if(trefferBei == 24){
-                konto -= 32;
+            if(trefferBei == (start + 25)){
+                konto -= 51;
             }
             
-            if(trefferBei == 25){
-                konto -= 32;
+            if(trefferBei == (start + 26)){
+                konto -= 51;
             }
             
-            if(trefferBei == 26){
-                konto -= 33;
+            if(trefferBei == (start + 27)){
+                konto -= 51;
             }
             
-            if(trefferBei == 27){
-                konto -= 33;
+            if(trefferBei == (start + 28)){
+                konto -= 51;
+            }
+            
+            if(trefferBei == (start + 29)){
+                konto -= 51;
+            }
+            
+            if(trefferBei == (start + 30)){
+                konto -= 51;
             }
             
             */
             
+            /*
+            
+            if(trefferBei == (start + 22)){
+                konto -= 76;
+            }
+            
+            if(trefferBei == (start + 23)){
+                konto -= 77;
+            }
+            
+            if(trefferBei == (start + 24)){
+                konto -= 76;
+            }
+            
+            if(trefferBei == (start + 25)){
+                konto -= 76;
+            }
+            
+            if(trefferBei == (start + 26)){
+                konto -= 77;
+            }
+            
+            if(trefferBei == (start + 27)){
+                konto -= 77;
+            }
+            
+            if(trefferBei == (start + 28)){
+                konto -= 77;
+            }
+            
+            */
+            
+            
+            /*
+            
+            if(trefferBei == (start + 29)){
+                konto -= 49;
+            }
+            
+            if(trefferBei == (start + 30)){
+                konto -= 50;
+            }
+            
+            if(trefferBei == (start + 31)){
+                konto -= 49;
+            }
+            
+            if(trefferBei == (start + 32)){
+                konto -= 49;
+            }
+            
+            if(trefferBei == (start + 33)){
+                konto -= 50;
+            }
+            
+            if(trefferBei == (start + 34)){
+                konto -= 50;
+            }
+            
+            if(trefferBei == (start + 35)){
+                konto -= 50;
+            }
+            
+            */
+            
+            
+            /*
+            
+            
+            
+            
+            */
+            
+           if(konto > maxKonto){
+               maxKonto = konto;
+           }
+           
+           if(konto < minKonto){
+               minKonto = konto;
+           }
+           
+           
             //IO.println("Treffer bei " + trefferBei);
             
             if(trefferExsist(trefferBei, arrayTrefferBei)){
@@ -197,7 +323,10 @@ public class stats
             IO.println("Treffer bei -> " + arrayTrefferBei[a] + " - Anzahl -> " + df.format(arrayTrefferAnzahl[a]));            
         }
         
-        IO.println("\n Konto -> " + konto + "€");
+        IO.println("\nKonto -> " + konto + "€");
+        
+        IO.println("\nmaxKonto -> " + maxKonto + "€");
+        IO.println("minKonto -> " + minKonto + "€");
         
     }
     
@@ -229,11 +358,57 @@ public class stats
         return (int) (Math.random() * (high - low) + low);
     }
     
+    
+    public static int randInt(int min, int max) {
+    
+        // NOTE: Usually this should be a field rather than a method
+        // variable so that it is not re-seeded every call.
+        Random rand = new Random();
+    
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+    
+        return randomNum;
+    }
+
+    
+    public static void duzend(){
+        
+        int duz1 = 0;
+        int duz2 = 0;
+        int duz3 = 0;
+        
+        for(int i = 1; i <= 3000000; i++){
+            int zahl;
+            
+            zahl = randInt(1,3);
+            
+   
+            
+            if(zahl == 1){
+                duz1++;
+            } else if(zahl == 2){
+                duz2++;
+            } else if(zahl == 3){
+                duz3++;
+            }
+        
+        }
+        
+        
+        IO.println("1 = " + duz1);
+        IO.println("2 = " + duz2);
+        IO.println("3 = " + duz3);
+        
+    }
+    
     public static void main(String[] args){
         //IO.println("Das ist Test \n");
         
        
         
         stati();
+        //duzend();
     }
 }
