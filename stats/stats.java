@@ -375,32 +375,53 @@ public class stats
     
     public static void duzend(){
         
+        int zero = 0;
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
         
-        for(int i = 1; i <= 3000000; i++){
+        for(int i = 1; i <= 300; i++){
             int zahl;
             
-            zahl = randInt(1,3);
+            zahl = randInt(0,36); // 1,2,3
             
    
-            
-            if(zahl == 1){
+            if(zahl == 0){
+                zero++;
+            } else if(zahl >= 1 && zahl <=12){
                 duz1++;
-            } else if(zahl == 2){
+            } else if(zahl >= 13 && zahl <= 24){
                 duz2++;
-            } else if(zahl == 3){
+            } else if(zahl >= 25 && zahl <= 36){
                 duz3++;
             }
         
         }
         
-        
+        /*
+        IO.println("0 = " + zero);
         IO.println("1 = " + duz1);
         IO.println("2 = " + duz2);
         IO.println("3 = " + duz3);
-        
+        IO.println("");
+        */
+       
+       int minInt = duz1;
+       
+       if(duz2 < minInt){
+           minInt = duz2;
+           
+           if(duz3 < minInt){
+               minInt = duz3;
+           }
+       } else if(duz3 < minInt){
+           minInt = duz3;
+       }
+       
+       
+       IO.println("min = " + minInt);
+       
+       
     }
     
     public static void main(String[] args){
@@ -408,7 +429,9 @@ public class stats
         
        
         
-        stati();
-        //duzend();
+        //stati();
+        for(int i = 0; i < 20; i++){
+            duzend();
+        }
     }
 }
