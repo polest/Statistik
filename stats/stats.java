@@ -18,7 +18,7 @@ public class stats
         int maxKonto = 0;
         
         
-        int start = 0;
+        int start = 8;
         
         int duz1 = 0;
         int duz2 = 0;
@@ -31,7 +31,7 @@ public class stats
         for(int i = 1; i <= 1000000; i++){
             int zahl;
             int curDuz;
-            int trefferBei = 10;
+            int trefferBei = 8;
             int index;
             
             zahl = randInt(0,36);
@@ -51,12 +51,12 @@ public class stats
                
                 if(duz2 >= 8){
                     duz2 = 0;
-                    konto -= 26;
+                    konto -= 7;
                 }
                 
                 if(duz3 >= 8){
                     duz3 = 0;
-                    konto -= 26;
+                    konto -= 7;
                 }
                 
                 duz1 = 0;
@@ -68,12 +68,12 @@ public class stats
                  
                 if(duz1 >= 8){
                     duz1 = 0;
-                    konto -= 26;
+                    konto -= 7;
                 }
                 
                 if(duz3 >= 8){
                     duz3 = 0;
-                    konto -= 26;
+                    konto -= 7;
                 }
                 
                 duz1 += 1;
@@ -85,12 +85,12 @@ public class stats
                  
                 if(duz1 >= 8){
                     duz1 = 0;
-                    konto -= 26;
+                    konto -= 7;
                 }
                 
                 if(duz2 >= 8){
                     duz2 = 0;
-                    konto -= 26;
+                    konto -= 7;
                 }
                 
                 duz1 += 1;
@@ -103,7 +103,7 @@ public class stats
             }
             
             if(trefferBei == (start + 2)){
-                konto += 1;
+                konto += 2;
             }
             
             if(trefferBei == (start + 3)){
@@ -115,7 +115,7 @@ public class stats
             }
             
             if(trefferBei == (start + 5)){
-                konto += 1;
+                konto += 2;
             }
             
             if(trefferBei == (start + 6)){
@@ -127,156 +127,9 @@ public class stats
             }
             
             if(trefferBei >= (start + 8)){
-                konto -= 26;
+                konto -= 7;
             }
             
-            /*
-            
-            if(trefferBei == (start + 8)){
-                konto -= 24;
-            }
-            
-            if(trefferBei == (start + 9)){
-                konto -= 25;
-            }
-            
-            if(trefferBei == (start + 10)){
-                konto -= 24;
-            }
-            
-            if(trefferBei == (start + 11)){
-                konto -= 24;
-            }
-            
-            if(trefferBei == (start + 12)){
-                konto -= 25;
-            }
-            
-            if(trefferBei == (start + 13)){
-                konto -= 25;
-            }
-            
-            if(trefferBei == (start + 14)){
-                konto -= 25;
-            }
-            
-            */
-           /* 
-           
-            if(trefferBei == (start + 21)){
-                konto -= 50;
-            }
-            
-            if(trefferBei == (start + 22)){
-                konto -= 51;
-            }
-            
-            if(trefferBei == (start + 23)){
-                konto -= 50;
-            }
-            
-            if(trefferBei == (start + 24)){
-                konto -= 50;
-            }
-            
-            if(trefferBei == (start + 25)){
-                konto -= 51;
-            }
-            
-            if(trefferBei == (start + 26)){
-                konto -= 51;
-            }
-            
-            if(trefferBei == (start + 27)){
-                konto -= 51;
-            }
-            
-            if(trefferBei == (start + 28)){
-                konto -= 51;
-            }
-            
-            if(trefferBei == (start + 29)){
-                konto -= 51;
-            }
-            
-            if(trefferBei == (start + 30)){
-                konto -= 51;
-            }
-            
-            */
-            
-            /*
-            
-            if(trefferBei == (start + 22)){
-                konto -= 76;
-            }
-            
-            if(trefferBei == (start + 23)){
-                konto -= 77;
-            }
-            
-            if(trefferBei == (start + 24)){
-                konto -= 76;
-            }
-            
-            if(trefferBei == (start + 25)){
-                konto -= 76;
-            }
-            
-            if(trefferBei == (start + 26)){
-                konto -= 77;
-            }
-            
-            if(trefferBei == (start + 27)){
-                konto -= 77;
-            }
-            
-            if(trefferBei == (start + 28)){
-                konto -= 77;
-            }
-            
-            */
-            
-            
-            /*
-            
-            if(trefferBei == (start + 29)){
-                konto -= 49;
-            }
-            
-            if(trefferBei == (start + 30)){
-                konto -= 50;
-            }
-            
-            if(trefferBei == (start + 31)){
-                konto -= 49;
-            }
-            
-            if(trefferBei == (start + 32)){
-                konto -= 49;
-            }
-            
-            if(trefferBei == (start + 33)){
-                konto -= 50;
-            }
-            
-            if(trefferBei == (start + 34)){
-                konto -= 50;
-            }
-            
-            if(trefferBei == (start + 35)){
-                konto -= 50;
-            }
-            
-            */
-            
-            
-            /*
-            
-            
-            
-            
-            */
             
            if(konto > maxKonto){
                maxKonto = konto;
@@ -373,13 +226,15 @@ public class stats
     }
 
     
+    
+    
     public static void duzend(){
         
         int zero = 0;
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
-        double faktor = 3.4;
+        double faktor = 3.0;
         int betDuz = 0;
         
         int konto = 25;
@@ -390,8 +245,6 @@ public class stats
         
         for(int i = 1; i <= 350; i++){
             
-            
-            
             int zahl;
             
             zahl = randInt(0,36); // 1,2,3
@@ -401,27 +254,20 @@ public class stats
                 IO.println("bet "+betDuz);
                 IO.println("zahl "+zahl);
                 
+                konto = konto - 1;
                 
-                if(zahl == 0){
-                    konto = konto - 1;
-                } else if(zahl >= 1 && zahl <=12){
+                if(zahl >= 1 && zahl <=12){
                     if(betDuz == 1){
-                        konto = konto + 2;
-                    } else {
-                        konto = konto - 1;
-                    }
+                        konto = konto + 3;
+                    } 
                 } else if(zahl >= 13 && zahl <= 24){
                     if(betDuz == 2){
-                        konto = konto + 2;
-                    } else {
-                        konto = konto - 1;
-                    }
+                        konto = konto + 3;
+                    } 
                 } else if(zahl >= 25 && zahl <= 36){
                     if(betDuz == 3){
-                        konto = konto + 2;
-                    } else {
-                        konto = konto - 1;
-                    }
+                        konto = konto + 3;
+                    } 
                 }
                 
                 betDuz = 0;
@@ -505,7 +351,7 @@ public class stats
        IO.println("maxGELD -> " + maxKonto);
        IO.println("minGELD -> " + minKonto);
        //IO.println("schleifen -> " + schleifen);
-       IO.println("################");
+       IO.println("################" + duz1);
        IO.println("");
        //IO.println("min = " + minInt);
        
