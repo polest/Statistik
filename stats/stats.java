@@ -379,11 +379,53 @@ public class stats
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
+        double faktor = 3.4;
+        int betDuz = 0;
         
-        for(int i = 1; i <= 300; i++){
+        int konto = 25;
+        int maxKonto = 0;
+        int minKonto = 999999999;
+        
+        int schleifen = 0;
+        
+        for(int i = 1; i <= 350; i++){
+            
+            
+            
             int zahl;
             
             zahl = randInt(0,36); // 1,2,3
+            
+            if(betDuz != 0){
+                
+                IO.println("bet "+betDuz);
+                IO.println("zahl "+zahl);
+                
+                
+                if(zahl == 0){
+                    konto = konto - 1;
+                } else if(zahl >= 1 && zahl <=12){
+                    if(betDuz == 1){
+                        konto = konto + 2;
+                    } else {
+                        konto = konto - 1;
+                    }
+                } else if(zahl >= 13 && zahl <= 24){
+                    if(betDuz == 2){
+                        konto = konto + 2;
+                    } else {
+                        konto = konto - 1;
+                    }
+                } else if(zahl >= 25 && zahl <= 36){
+                    if(betDuz == 3){
+                        konto = konto + 2;
+                    } else {
+                        konto = konto - 1;
+                    }
+                }
+                
+                betDuz = 0;
+            }
             
    
             if(zahl == 0){
@@ -396,6 +438,43 @@ public class stats
                 duz3++;
             }
         
+            int minInt = duz1;
+            int curMinDuz = 1;
+       
+           if(duz2 < minInt){
+               minInt = duz2;
+               curMinDuz = 2;
+               if(duz3 < minInt){
+                   minInt = duz3;
+                   curMinDuz = 3;
+               }
+           } else if(duz3 < minInt){
+               minInt = duz3;
+               curMinDuz = 3;
+           }
+            
+            
+            if(i >= 300){
+                
+                double erg = (double)i / (double)minInt;
+                //IO.println(erg);
+                if(erg >= faktor){
+                    // bet auf min duzend
+                    // min duz herausfinden
+                    schleifen++;
+                    betDuz = curMinDuz;
+                }
+                
+            }
+            
+            if(konto > maxKonto){
+               maxKonto = konto;
+           }
+           
+           if(konto < minKonto){
+               minKonto = konto;
+           }
+            
         }
         
         /*
@@ -406,6 +485,7 @@ public class stats
         IO.println("");
         */
        
+       /*
        int minInt = duz1;
        
        if(duz2 < minInt){
@@ -417,21 +497,43 @@ public class stats
        } else if(duz3 < minInt){
            minInt = duz3;
        }
+       */
        
        
-       IO.println("min = " + minInt);
+       IO.println("################");
+       IO.println("GELD -> " + konto);
+       IO.println("maxGELD -> " + maxKonto);
+       IO.println("minGELD -> " + minKonto);
+       //IO.println("schleifen -> " + schleifen);
+       IO.println("################");
+       IO.println("");
+       //IO.println("min = " + minInt);
        
+       //return minInt;
        
     }
     
     public static void main(String[] args){
         //IO.println("Das ist Test \n");
         
-       
+       int minMin = 999999999;
         
         //stati();
-        for(int i = 0; i < 20; i++){
+        
+        
+        for(int i = 0; i < 12; i++){
+            
             duzend();
+            
+            /*
+            int curDuz = duzend();
+            
+            if(curDuz < minMin){
+                minMin = curDuz;
+            }
+            */
         }
+       
+        
     }
 }
