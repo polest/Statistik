@@ -226,13 +226,13 @@ public class stats
     
     
     
-    public static void duzend(){
+    public static double duzend(){
         
         int zero = 0;
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
-        double faktor = 3.40 * 100;
+        double faktor = 3.60 * 100;
         int betDuz = 0;
         
         int konto = 25;
@@ -242,7 +242,7 @@ public class stats
         int schleifen = 0;
         double minErg = 99999999;
         
-        double abzug = 0.002;
+        double abzug = 0.012; //  0.022
         
         for(int i = 1; i <= 1000; i++){
             
@@ -374,7 +374,7 @@ public class stats
        IO.println("");
        //IO.println("min = " + minInt);
        
-       //return minInt;
+       return konto - 25;
        
       
        
@@ -388,13 +388,13 @@ public class stats
        //int minMin = 999999999;
         
         //stati();
-        
+        double totalKonto = 0;
        
-      for(int abc = 0; abc < 5; abc++){
-        duzend();
+      for(int abc = 0; abc < 100; abc++){
+        totalKonto = totalKonto + duzend();
     }
        
-       
+       IO.println(totalKonto);
         
     }
 }
