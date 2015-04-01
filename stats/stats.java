@@ -5,17 +5,24 @@ public class stats
 {
     
     public static void stati(){
-        // 1 - 1€ - 1€ - +2
-        // 2 - 1€ - 2€ - +1
-        // 3 - 2€ - 4€ - +2
-        // 4 - 3€ - 7€ - +2
-        // 5 - 4€ - 11€ - +1
-        // 6 - 6€ - 17€ - +1
-        // 7 - 9€ - 26€ - +1
+        // 1 - 0,1€ - 0,1€ - +0,2
+        // 2 - 0,1€ - 0,2€ - +0,1
+        // 3 - 0,2€ - 0,4€ - +0,2
+        // 4 - 0,3€ - 0,7€ - +0,2
+        // 5 - 0,4€ - 1,1€ - +0,1
+        // 6 - 0,6€ - 1,7€ - +0,1
+        // 7 - 0,9€ - 2,6€ - +0,1
+        // 8 - 1,4€ - 4,0€ - +0,2
+        // 9 - 2,1€ - 6,1€ - +0,2
+        // 10 - 3,1€ - 9,2€ - +0,1
+        // 11 - 4,7€ - 13,9€ - +0,2
+        // 12 - 7,0€ - 20,9€ - +0,1
+        // 13 - 10,5€ - 31,4€ - +0,1
+        // 14 - 15,8€ - 47,2€ - +0,2
         
-        int konto = 25;
-        int minKonto = 0;
-        int maxKonto = 0;
+        double konto = 25;
+        double minKonto = 999999999;
+        double maxKonto = 0;
         
         
         int start = 8;
@@ -28,10 +35,10 @@ public class stats
         int[] arrayTrefferBei = new int[0];
         int[] arrayTrefferAnzahl = new int[0];
         
-        for(int i = 1; i <= 1000000; i++){
+        for(int i = 1; i <= 100000; i++){
             int zahl;
             int curDuz;
-            int trefferBei = 8;
+            int trefferBei = 0;
             int index;
             
             zahl = randInt(0,36);
@@ -49,32 +56,12 @@ public class stats
                 
                 trefferBei = duz1 + 1;
                
-                if(duz2 >= 8){
-                    duz2 = 0;
-                    konto -= 7;
-                }
-                
-                if(duz3 >= 8){
-                    duz3 = 0;
-                    konto -= 7;
-                }
-                
                 duz1 = 0;
                 duz2 += 1;
                 duz3 += 1;
             } else if(zahl >= 13 && zahl <= 24){
                 
                 trefferBei = duz2 + 1;
-                 
-                if(duz1 >= 8){
-                    duz1 = 0;
-                    konto -= 7;
-                }
-                
-                if(duz3 >= 8){
-                    duz3 = 0;
-                    konto -= 7;
-                }
                 
                 duz1 += 1;
                 duz2 = 0;
@@ -82,16 +69,6 @@ public class stats
             } else if(zahl >= 25 && zahl <= 36){
                 
                 trefferBei = duz3 + 1;
-                 
-                if(duz1 >= 8){
-                    duz1 = 0;
-                    konto -= 7;
-                }
-                
-                if(duz2 >= 8){
-                    duz2 = 0;
-                    konto -= 7;
-                }
                 
                 duz1 += 1;
                 duz2 += 1;
@@ -99,35 +76,56 @@ public class stats
             }
             
             if(trefferBei == (start + 1)){
-                konto += 2;
+                konto += 0.2;
             }
             
             if(trefferBei == (start + 2)){
-                konto += 2;
+                konto += 0.1;
             }
             
             if(trefferBei == (start + 3)){
-                konto += 2;
+                konto += 0.2;
             }
             
             if(trefferBei == (start + 4)){
-                konto += 2;
+                konto += 0.2;
             }
             
             if(trefferBei == (start + 5)){
-                konto += 2;
+                konto += 0.1;
             }
             
             if(trefferBei == (start + 6)){
-                konto += 1;
+                konto += 0.1;
             }
             
             if(trefferBei == (start + 7)){
-                konto += 1;
+                konto += 0.1;
             }
             
             if(trefferBei >= (start + 8)){
-                konto -= 7;
+                konto += 0.2;
+            }
+            
+            if(trefferBei == (start + 9)){
+                konto += 0.2;
+            }
+            
+            if(trefferBei == (start + 10)){
+                konto += 0.1;
+            }
+            
+            if(trefferBei == (start + 11)){
+                konto += 0.2;
+            }
+            
+            if(trefferBei == (start + 12)){
+                konto += 0.1;
+            }
+            
+            
+            if(trefferBei > (start + 12)){
+                konto -= 20.9;
             }
             
             
@@ -234,7 +232,7 @@ public class stats
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
-        double faktor = 3.0;
+        double faktor = 3.4;
         int betDuz = 0;
         
         int konto = 25;
@@ -243,7 +241,7 @@ public class stats
         
         int schleifen = 0;
         
-        for(int i = 1; i <= 350; i++){
+        for(int i = 1; i <= 5000; i++){
             
             int zahl;
             
@@ -303,6 +301,7 @@ public class stats
             if(i >= 300){
                 
                 double erg = (double)i / (double)minInt;
+                IO.println(erg);
                 //IO.println(erg);
                 if(erg >= faktor){
                     // bet auf min duzend
@@ -362,23 +361,15 @@ public class stats
     public static void main(String[] args){
         //IO.println("Das ist Test \n");
         
-       int minMin = 999999999;
+       //int minMin = 999999999;
         
         //stati();
         
-        
-        for(int i = 0; i < 12; i++){
+       
+      
+        duzend();
             
-            duzend();
-            
-            /*
-            int curDuz = duzend();
-            
-            if(curDuz < minMin){
-                minMin = curDuz;
-            }
-            */
-        }
+       
        
         
     }
