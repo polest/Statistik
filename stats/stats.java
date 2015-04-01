@@ -232,7 +232,7 @@ public class stats
         int duz1 = 0;
         int duz2 = 0;
         int duz3 = 0;
-        double faktor = 3.4;
+        double faktor = 3.40 * 100;
         int betDuz = 0;
         
         int konto = 25;
@@ -240,17 +240,21 @@ public class stats
         int minKonto = 999999999;
         
         int schleifen = 0;
+        double minErg = 99999999;
         
-        for(int i = 1; i <= 5000; i++){
+        double abzug = 0.002;
+        
+        for(int i = 1; i <= 1000; i++){
             
             int zahl;
             
             zahl = randInt(0,36); // 1,2,3
             
+            
             if(betDuz != 0){
                 
-                IO.println("bet "+betDuz);
-                IO.println("zahl "+zahl);
+                //IO.println("bet "+betDuz);
+                //IO.println("zahl "+zahl);
                 
                 konto = konto - 1;
                 
@@ -271,7 +275,7 @@ public class stats
                 betDuz = 0;
             }
             
-   
+            
             if(zahl == 0){
                 zero++;
             } else if(zahl >= 1 && zahl <=12){
@@ -297,12 +301,23 @@ public class stats
                curMinDuz = 3;
            }
             
+           
+           
             
-            if(i >= 300){
+            if(i >= 100){
                 
-                double erg = (double)i / (double)minInt;
-                IO.println(erg);
+                double erg = ((double)i / (double)minInt) * 100;
+                
+                if(i == 1000){
+                    IO.println("adfaiofijoa -> " + erg);
+               }
+                
+                if(erg < minErg){
+                    minErg = erg;
+                }
+                
                 //IO.println(erg);
+                
                 if(erg >= faktor){
                     // bet auf min duzend
                     // min duz herausfinden
@@ -310,7 +325,11 @@ public class stats
                     betDuz = curMinDuz;
                 }
                 
+                faktor = faktor - abzug;
+                //IO.println("aaaa " + faktor);
             }
+            
+            
             
             if(konto > maxKonto){
                maxKonto = konto;
@@ -344,7 +363,8 @@ public class stats
        }
        */
        
-       
+      
+      
        IO.println("################");
        IO.println("GELD -> " + konto);
        IO.println("maxGELD -> " + maxKonto);
@@ -356,6 +376,10 @@ public class stats
        
        //return minInt;
        
+      
+       
+       //IO.println("minerg = " + minErg);
+       
     }
     
     public static void main(String[] args){
@@ -366,9 +390,9 @@ public class stats
         //stati();
         
        
-      
+      for(int abc = 0; abc < 5; abc++){
         duzend();
-            
+    }
        
        
         
